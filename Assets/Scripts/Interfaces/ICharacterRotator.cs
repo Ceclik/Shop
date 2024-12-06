@@ -1,7 +1,10 @@
-﻿namespace Interfaces
+﻿using UnityEngine;
+
+namespace Interfaces
 {
-    public class ICharacterRotator
+    public interface ICharacterRotator
     {
-        
+        public void Rotate(float mouseSensitivity, Rigidbody rigidbody, ref float verticalRotation,
+            Transform cameraTransform);
     }
 }
