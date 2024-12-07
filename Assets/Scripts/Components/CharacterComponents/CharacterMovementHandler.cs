@@ -1,8 +1,8 @@
 ﻿using Interfaces;
-using Services;
+using Services.CharacterServices;
 using UnityEngine;
 
-namespace Components
+namespace Components.CharacterComponents
 {
     public class CharacterMovementHandler : MonoBehaviour
     {

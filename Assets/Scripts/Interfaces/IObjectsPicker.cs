@@ -1,4 +1,4 @@
-﻿using Components;
+﻿using Components.CharacterComponents;
 using UnityEngine;
 
 namespace Interfaces

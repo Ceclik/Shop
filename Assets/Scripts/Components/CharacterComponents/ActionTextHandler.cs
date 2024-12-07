@@ -1,9 +1,9 @@
 ﻿using Interfaces;
-using Services;
+using Services.CharacterServices;
 using TMPro;
 using UnityEngine;
 
-namespace Components
+namespace Components.CharacterComponents
 {
     public class ActionTextHandler : MonoBehaviour
     {

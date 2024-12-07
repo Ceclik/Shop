@@ -1,7 +1,7 @@
 ﻿using Interfaces;
 using TMPro;
 
-namespace Services
+namespace Services.CharacterServices
 {
     public class ActionTextHandlingService : IActionTextHandler
 

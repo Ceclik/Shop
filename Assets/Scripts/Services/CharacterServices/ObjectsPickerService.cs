@@ -1,8 +1,8 @@
-﻿using Components;
+﻿using Components.CharacterComponents;
 using Interfaces;
 using UnityEngine;
 
-namespace Services
+namespace Services.CharacterServices
 {
     public class ObjectsPickerService : IObjectsPicker
     {
