@@ -1,18 +1,11 @@
 ﻿using System.Collections.Generic;
+using Interfaces;
+using Services;
 using TMPro;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Components.OrderComponents
 {
-    internal enum Food
-    {
-        Apple,
-        Cheese,
-        Beer,
-        Jack
-    }
-
     public class OrderCreator : MonoBehaviour
     {
         [SerializeField] private int orderSize;
@@ -20,13 +13,21 @@ namespace Components.OrderComponents
         [SerializeField] private TextMeshProUGUI orderText;
 
         [SerializeField] private bool isOrderCreated;
+        
+        public Dictionary<string, int> Order { get; private set; }
 
         private List<int> _usedNumbers;
+        private IOrderCreator _orderCreator;
+
+        public delegate void HandleOrder();
+
+        public event HandleOrder OnOrderCreated;
 
 
         private void Start()
         {
             _usedNumbers = new List<int>(orderSize);
+            _orderCreator = new CreatingOrderService();
         }
 
         private void Update()
@@ -34,60 +35,16 @@ namespace Components.OrderComponents
             if (isOrderCreated)
             {
                 isOrderCreated = false;
-                var order = CreateOrder();
+                Order = _orderCreator.CreateOrder(orderSize, maxFoodAmount, _usedNumbers);
+                OnOrderCreated?.Invoke();
+                
                 var orderText = "";
 
-                foreach (var food in order) orderText += $"{food.Key}: {food.Value}\n";
+                foreach (var food in Order) orderText += $"{food.Key}: {food.Value}\n";
 
                 this.orderText.text = orderText;
             }
         }
-
-        private Dictionary<string, int> CreateOrder()
-        {
-            var order = new Dictionary<string, int>();
-
-            for (var i = 0; i < orderSize; i++)
-            {
-                var foodName = "";
-                var foodAmount = Random.Range(1, maxFoodAmount + 1);
-                var foodNameCode = GenerateFoodCode();
-
-                switch (foodNameCode)
-                {
-                    case 1:
-                        foodName = "Apple";
-                        break;
-                    case 2:
-                        foodName = "Cheese";
-                        break;
-                    case 3:
-                        foodName = "Beer";
-                        break;
-                    case 4:
-                        foodName = "Jack";
-                        break;
-                }
-
-                order.Add(foodName, foodAmount);
-            }
-
-            _usedNumbers.Clear();
-            return order;
-        }
-
-        private int GenerateFoodCode()
-        {
-            var foodCode = 0;
-
-            do
-            {
-                foodCode = Random.Range(1, 5);
-            } while (_usedNumbers.Contains(foodCode));
-
-            _usedNumbers.Add(foodCode);
-            Debug.Log($"Used numbers: {_usedNumbers}");
-            return foodCode;
-        }
+        
     }
 }

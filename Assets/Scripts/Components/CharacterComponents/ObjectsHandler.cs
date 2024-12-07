@@ -40,7 +40,7 @@ namespace Components.CharacterComponents
             }
             else if (_isObjectPicked)
             {
-                Debug.Log(_objectTransform);
+                //Debug.Log(_objectTransform);
                 _objectsThrower.ThrowObject(_objectTransform, mainObjectsParent, _actionTextHandler,
                     ref _isObjectPicked);
             }
