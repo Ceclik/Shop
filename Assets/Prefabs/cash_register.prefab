@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 7723015812964941151}
   - component: {fileID: 7606194636028873774}
   - component: {fileID: 6494169076361557831}
+  - component: {fileID: 8090093167969741098}
+  - component: {fileID: 6871873052686483281}
   m_Layer: 0
   m_Name: cash_box
   m_TagString: Untagged
@@ -113,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 398647555816605911}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: 0.9999899, w: -0.004486502}
-  m_LocalPosition: {x: 0.1, y: -0.012, z: 0}
+  m_LocalPosition: {x: 0.127, y: -0.012, z: 0}
   m_LocalScale: {x: 0.875654, y: 0.7889222, z: 0.76909167}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -171,6 +173,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8090093167969741098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398647555816605911}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0436406, y: 2.259879, z: 0.11444047}
+  m_Center: {x: -0.021820448, y: -0.0020785113, z: -0.90431345}
+--- !u!114 &6871873052686483281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398647555816605911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bef509b69914c23885be943db517c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1500402022471308431
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +578,7 @@ Transform:
   m_GameObject: {fileID: 7668636042546060407}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: 0.9999899, w: -0.004486502}
-  m_LocalPosition: {x: 0.093, y: -0.012, z: 0}
+  m_LocalPosition: {x: -0.096, y: -0.014, z: 0}
   m_LocalScale: {x: 0.875654, y: 0.7889222, z: 0.76909167}
   m_ConstrainProportionsScale: 0
   m_Children: []

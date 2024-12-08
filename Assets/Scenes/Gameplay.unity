@@ -2813,14 +2813,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 966503285}
     m_Modifications:
-    - target: {fileID: 2981804027110270014, guid: c71185b4685530744a1d9f6d263e6a41, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.096
-      objectReference: {fileID: 0}
-    - target: {fileID: 2981804027110270014, guid: c71185b4685530744a1d9f6d263e6a41, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.014
-      objectReference: {fileID: 0}
     - target: {fileID: 3874149814659311257, guid: c71185b4685530744a1d9f6d263e6a41, type: 3}
       propertyPath: m_Name
       value: cash_register
@@ -5631,6 +5623,7 @@ GameObject:
   - component: {fileID: 8573823514514409735}
   - component: {fileID: 8573823514514409737}
   - component: {fileID: 8573823514514409736}
+  - component: {fileID: 8573823514514409738}
   m_Layer: 0
   m_Name: Money
   m_TagString: Money
@@ -5990,6 +5983,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.548903, y: 10.793653, z: 1.9999998}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8573823514514409738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7925398007341279442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8dcce5e9634c3c80bccc62a6a909fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8685018712791058668
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using Components.CharacterComponents;
+﻿using Components;
+using Components.CharacterComponents;
 using Interfaces;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace Services.CharacterServices
                     actionTextHandler.ShowActionText(isObjectPicked);
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                    if (objectTransform.CompareTag("Money") && objectTransform.GetComponent<Money>().IsInCashRegister)
+                        return;
                     objectTransform.SetParent(cameraTransform);
                     objectTransform.GetComponent<Rigidbody>().isKinematic = true;
                     /*objectTransform.position = new Vector3(objectTransform.position.x, camera.transform.position.y,
