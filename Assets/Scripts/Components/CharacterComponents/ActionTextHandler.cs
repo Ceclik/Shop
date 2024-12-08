@@ -28,6 +28,11 @@ namespace Components.CharacterComponents
             IsTextShown = true;
         }
 
+        public void ShowCashRegisterText(bool isOpened)
+        {
+            _actionTextHandler.ShowCashRegisterText(actionText, isOpened);
+        }
+
         public void HideActionText()
         {
             actionText.gameObject.SetActive(false);

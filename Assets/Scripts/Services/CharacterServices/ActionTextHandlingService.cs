@@ -19,5 +19,12 @@ namespace Services.CharacterServices
                 actionText.gameObject.SetActive(true);
             }
         }
+
+        public void ShowCashRegisterText(TextMeshProUGUI actionText, bool isOpened)
+        {
+            actionText.text = !isOpened ? "Press 'F' to open cash register" : "Press 'F' to close cash register";
+
+            actionText.gameObject.SetActive(true);
+        }
     }
 }

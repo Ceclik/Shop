@@ -12,7 +12,8 @@ namespace Services.CharacterServices
 
             if (Physics.Raycast(ray, out hit, rayDistance))
             {
-                if (hit.collider.CompareTag("Food"))
+                if (hit.collider.CompareTag("Food") || hit.collider.CompareTag("CashRegister") ||
+                    hit.collider.CompareTag("Money"))
                 {
                     objectTransform = hit.collider.transform;
                     return true;

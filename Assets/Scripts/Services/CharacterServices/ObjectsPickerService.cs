@@ -13,7 +13,7 @@ namespace Services.CharacterServices
         {
             if (_objectsFinderService.FindObject(camera, rayDistance, out objectTransform))
             {
-                if (!actionTextHandler.IsTextShown)
+                if (!actionTextHandler.IsTextShown )
                     actionTextHandler.ShowActionText(isObjectPicked);
                 if (Input.GetKeyDown(KeyCode.F))
                 {
