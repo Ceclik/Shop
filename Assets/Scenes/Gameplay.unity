@@ -1059,14 +1059,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858687549}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.066, y: 1.033, z: 2.148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.74, y: 1.033, z: -2.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &858687555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,7 +1087,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858687549}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2002e67e2efd481d93bb607cf24a9e08, type: 3}
   m_Name: 
@@ -1693,7 +1693,7 @@ GameObject:
   - component: {fileID: 1089014951}
   m_Layer: 0
   m_Name: HumanPosition
-  m_TagString: Untagged
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1939,7 +1939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1479008892
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2022,14 +2022,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479008891}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.657, y: 0.988, z: -1.047}
-  m_LocalScale: {x: 0.03437682, y: 1, z: 0.04859946}
+  m_LocalRotation: {x: -0.5737032, y: -0, z: -0, w: 0.8190632}
+  m_LocalPosition: {x: 2.98, y: -1.213, z: -0.154}
+  m_LocalScale: {x: 0.26443705, y: 7.6923127, z: 0.37384224}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 34383154}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 4803407795027663198}
+  m_LocalEulerAnglesHint: {x: -70.018, y: 0, z: 0}
 --- !u!114 &1479008896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3149,7 +3149,7 @@ GameObject:
   - component: {fileID: 919132148329962649}
   m_Layer: 0
   m_Name: table
-  m_TagString: Untagged
+  m_TagString: ObjectsCounter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4694,6 +4694,7 @@ Transform:
   m_LocalScale: {x: 0.13, y: 0.12999994, z: 0.12999994}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 1479008895}
   - {fileID: 2795683152480422410}
   m_Father: {fileID: 1089014950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5997,6 +5998,5 @@ SceneRoots:
   - {fileID: 966503285}
   - {fileID: 391248424}
   - {fileID: 2006260270}
-  - {fileID: 1479008895}
   - {fileID: 1089014950}
   - {fileID: 827029680}

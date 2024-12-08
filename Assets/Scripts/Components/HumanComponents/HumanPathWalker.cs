@@ -19,6 +19,10 @@ namespace Components.HumanComponents
         
         private IHumanPathWalker _walker;
 
+        public delegate void HandleCompletedPath();
+        public event HandleCompletedPath OnHumanCameToTable;
+        public event HandleCompletedPath OnHumanGoAway;
+
         private void Start()
         {
             _walker = new HumanPathWalkerService();
@@ -42,6 +46,22 @@ namespace Components.HumanComponents
                     transform, ref debugGoBack);
             }
 
+            if (_isPathComplete)
+            {
+                if (_isGoingForward)
+                    OnHumanCameToTable?.Invoke();
+                else 
+                    OnHumanGoAway?.Invoke();
+                    
+                if(debugGoBack)
+                {
+                    debugGoBack = false;
+                    ChangeDirection();
+                }
+                
+                
+            }
+
             if (_isPathComplete && debugGoBack)
             {
                 debugGoBack = false;
@@ -49,7 +69,7 @@ namespace Components.HumanComponents
             }
         }
 
-        private void ChangeDirection()
+        public void ChangeDirection()
         {
             if (_isPathComplete && _isGoingForward && !_isGoingBackward)
             {

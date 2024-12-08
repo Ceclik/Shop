@@ -29,12 +29,12 @@ namespace Services.HumanServices
                     currentPointIndex++;
                     Debug.Log($"Current point index: {currentPointIndex}");
                 }
-            }
 
-            if (!isPathComplete && currentPointIndex == points.Length)
-            {
-                Debug.Log("Path complete!!!");
-                isPathComplete = true;
+                if (currentPointIndex == points.Length)
+                {
+                    Debug.Log("Path complete!!!");
+                    isPathComplete = true;
+                }
             }
         }
 
@@ -61,12 +61,12 @@ namespace Services.HumanServices
                     currentPointIndex--;
                     Debug.Log($"Current point index: {currentPointIndex}");
                 }
-            }
 
-            if (!isPathComplete && currentPointIndex == -1)
-            {
-                Debug.Log("Path complete!!!");
-                isPathComplete = true;
+                if (currentPointIndex == -1)
+                {
+                    Debug.Log("Path complete!!!");
+                    isPathComplete = true;
+                }
             }
         }
     }
