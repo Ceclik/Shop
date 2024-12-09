@@ -9,8 +9,8 @@ namespace Components.CashRegisterComponents
         private List<GameObject> _moneyInCashRegister;
 
         public delegate void HandleMoneyAfterCashRegister();
-
         public event HandleMoneyAfterCashRegister OnMoneyPutIntoCashRegister;
+        
         private void Start()
         {
             _moneyInCashRegister = new List<GameObject>();
