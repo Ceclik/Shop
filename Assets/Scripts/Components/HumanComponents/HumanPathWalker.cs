@@ -10,6 +10,7 @@ namespace Components.HumanComponents
         [SerializeField] private Transform pathParent;
         [SerializeField] private float humanWalkSpeed;
         [SerializeField] private float humanRotationSpeed;
+        [SerializeField] private DoorsRotator door;
         [Space(10)] [SerializeField] private bool debugGoBack;
         private Transform[] _points;
         private int _currentPointIndex;
@@ -17,6 +18,8 @@ namespace Components.HumanComponents
 
         private bool _isGoingForward = true;
         private bool _isGoingBackward;
+
+        private bool _hasDoorMoved;
         
         private IHumanPathWalker _walker;
 
@@ -30,6 +33,23 @@ namespace Components.HumanComponents
             _points = new Transform[pathParent.childCount];
             for (int i = 0; i < pathParent.childCount; i++)
                 _points[i] = pathParent.GetChild(i);
+        }
+
+        private void Update()
+        {
+            if ((_currentPointIndex is 1 or 2) && !_hasDoorMoved)
+            {
+                Debug.Log("opening");
+                door.RotateDoor();
+                _hasDoorMoved = true;
+            }
+            
+            if (!(_currentPointIndex is 1 or 2) && _hasDoorMoved)
+            {
+                Debug.Log("closing");
+                door.RotateDoor();
+                _hasDoorMoved = false;
+            }
         }
 
         private void FixedUpdate()
@@ -54,9 +74,8 @@ namespace Components.HumanComponents
                 else
                 {
                     OnHumanGoAway?.Invoke();
-                    GameObject beerPack;
 
-                    beerPack = GameObject.Find("BeerPackParent(Clone)");
+                    GameObject beerPack = GameObject.Find("BeerPackParent(Clone)");
                     Destroy(beerPack);
                     
                     ChangeDirection();
