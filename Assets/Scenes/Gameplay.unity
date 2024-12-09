@@ -3388,7 +3388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d65e03b81e341829bd980d4a8d8f754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOnOneClient: 50
+  timeOnOneClient: 600
 --- !u!1 &1280065003
 GameObject:
   m_ObjectHideFlags: 0
@@ -5650,7 +5650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7401952856984319106, guid: f567a4f4994b05f438a0ccdc1baa3463, type: 3}
       propertyPath: m_Name
-      value: 'Cheese '
+      value: Cheese
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -13,6 +13,7 @@ namespace Services.CharacterServices
             {
                 objectTransform.SetParent(mainObjectsParent);
                 objectTransform.GetComponent<Rigidbody>().isKinematic = false;
+                objectTransform.GetComponent<Collider>().isTrigger = false;
                 objectTransform = null;
                 actionTextHandler.HideActionText();
                 isObjectPicked = false;

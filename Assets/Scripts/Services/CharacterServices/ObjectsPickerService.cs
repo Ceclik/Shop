@@ -22,6 +22,7 @@ namespace Services.CharacterServices
                         return;
                     objectTransform.SetParent(cameraTransform);
                     objectTransform.GetComponent<Rigidbody>().isKinematic = true;
+                    objectTransform.GetComponent<Collider>().isTrigger = true;
                     /*objectTransform.position = new Vector3(objectTransform.position.x, camera.transform.position.y,
                         objectTransform.position.z);*/
                     isObjectPicked = true;
