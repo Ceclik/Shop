@@ -46,7 +46,7 @@ namespace Components.OrderComponents
 
             if (_order.Count == _items.Count && !_order.Except(_items).Any())
             {
-                Debug.Log("Order is complete!!!");
+                Debug.LogError("Order is complete!!!");
                 //_isOrderComplete = true;
                 OnOrderComplete?.Invoke();
             }

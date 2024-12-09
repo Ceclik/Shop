@@ -10,6 +10,7 @@ namespace AnimationStatesScripts
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             _animator = animator;
+            ResetAllTriggers();
             _humanPathWalker = GameObject.FindGameObjectWithTag("Human").GetComponent<HumanPathWalker>();
             _humanPathWalker.OnHumanCameToTable += SetCameToTableTrigger;
         }
@@ -22,6 +23,16 @@ namespace AnimationStatesScripts
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             _humanPathWalker.OnHumanCameToTable -= SetCameToTableTrigger;
+        }
+
+        private void ResetAllTriggers()
+        {
+            _animator.ResetTrigger("CameToTable");
+            _animator.ResetTrigger("ShowPaper");
+            _animator.ResetTrigger("HidePaper");
+            _animator.ResetTrigger("ShowMoney");
+            _animator.ResetTrigger("TakeMoneyAway");
+            _animator.ResetTrigger("TimerFailGoAway");
         }
     
     }

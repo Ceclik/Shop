@@ -10,6 +10,7 @@ TagManager:
   - CashRegister
   - Money
   - MoneyInteractionPart
+  - Timer
   layers:
   - Default
   - TransparentFX
