@@ -30,7 +30,7 @@ namespace Components.OrderComponents
         private void HandleEvent()
         {
             _order = orderCreator.Order;
-            _items = new Dictionary<string, int>(orderCreator.Order);
+            _items = new Dictionary<string, int>(_order);
             SetItemsCounterZero();
         }
 

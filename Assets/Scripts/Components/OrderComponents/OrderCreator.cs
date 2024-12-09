@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Components.HumanComponents;
 using Interfaces;
 using Services;
 using TMPro;
@@ -12,12 +14,13 @@ namespace Components.OrderComponents
         [SerializeField] private int maxFoodAmount;
         [SerializeField] private TextMeshProUGUI orderText;
 
-        [SerializeField] private bool isOrderCreated;
+        private bool _isOrderCreated;
         
         public Dictionary<string, int> Order { get; private set; }
 
         private List<int> _usedNumbers;
         private IOrderCreator _orderCreator;
+        private HumanPathWalker _humanPathWalker;
 
         public delegate void HandleOrder();
 
@@ -26,25 +29,39 @@ namespace Components.OrderComponents
 
         private void Start()
         {
+            _humanPathWalker = GameObject.FindGameObjectWithTag("Human").GetComponent<HumanPathWalker>();
+            _humanPathWalker.OnHumanGoAway += CreateNewOrder;
             _usedNumbers = new List<int>(orderSize);
             _orderCreator = new CreatingOrderService();
+            _isOrderCreated = true;
         }
 
         private void Update()
         {
-            if (isOrderCreated)
+            if (_isOrderCreated)
             {
-                isOrderCreated = false;
-                Order = _orderCreator.CreateOrder(orderSize, maxFoodAmount, _usedNumbers);
-                OnOrderCreated?.Invoke();
-                
-                var orderText = "";
-
-                foreach (var food in Order) orderText += $"{food.Key}: {food.Value}\n";
-
-                this.orderText.text = orderText;
+                CreateNewOrder();
             }
         }
-        
+
+
+        private void CreateNewOrder()
+        {
+            _isOrderCreated = false;
+            Order = null;
+            Order = _orderCreator.CreateOrder(orderSize, maxFoodAmount, _usedNumbers);
+            OnOrderCreated?.Invoke();
+                
+            var orderText = "";
+
+            foreach (var food in Order) orderText += $"{food.Key}: {food.Value}\n";
+
+            this.orderText.text = orderText;
+        }
+
+        private void OnDestroy()
+        {
+            _humanPathWalker.OnHumanGoAway -= CreateNewOrder;
+        }
     }
 }

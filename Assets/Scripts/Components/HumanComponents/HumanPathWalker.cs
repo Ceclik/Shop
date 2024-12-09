@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using Services.HumanServices;
 using UnityEngine;
 
@@ -50,9 +51,17 @@ namespace Components.HumanComponents
             {
                 if (_isGoingForward)
                     OnHumanCameToTable?.Invoke();
-                else 
+                else
+                {
                     OnHumanGoAway?.Invoke();
+                    GameObject beerPack;
+
+                    beerPack = GameObject.Find("BeerPackParent(Clone)");
+                    Destroy(beerPack);
                     
+                    ChangeDirection();
+                }
+
                 if(debugGoBack)
                 {
                     debugGoBack = false;
