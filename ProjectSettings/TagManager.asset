@@ -9,6 +9,7 @@ TagManager:
   - Human
   - CashRegister
   - Money
+  - MoneyInteractionPart
   layers:
   - Default
   - TransparentFX
