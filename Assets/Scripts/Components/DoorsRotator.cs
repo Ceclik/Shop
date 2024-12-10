@@ -9,6 +9,7 @@ namespace Components
         
         public bool IsOpening { get; private set; }
         private float _elapsedTime;
+        private AudioSource _sound;
 
         private Quaternion _doorStartRotation;
         private Quaternion _doorEndRotation;
@@ -16,6 +17,7 @@ namespace Components
 
         private void Start()
         {
+            _sound = GetComponent<AudioSource>();
             _doorStartRotation = transform.rotation;
             _doorEndRotation = _doorStartRotation * Quaternion.Euler(0f, 120.0f, 0.0f);
         }
@@ -24,6 +26,7 @@ namespace Components
         {
             _elapsedTime = 0f;
             IsOpening = true;
+            _sound.Play();
         }
         
         private void FixedUpdate()

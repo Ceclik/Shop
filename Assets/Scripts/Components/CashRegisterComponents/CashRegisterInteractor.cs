@@ -12,12 +12,14 @@ namespace Components.CashRegisterComponents
         [SerializeField] private Transform closedPoint;
         
         private ActionTextHandler _actionTextHandler;
+        private AudioSource _cashRegisterSound;
         private bool _isOpened;
         private bool _isMoving;
 
         private void Start()
         {
             _actionTextHandler = GetComponent<ActionTextHandler>();
+            _cashRegisterSound = openingPart.GetComponent<AudioSource>();
         }
 
         private void FixedUpdate()
@@ -53,7 +55,10 @@ namespace Components.CashRegisterComponents
             {
                 _actionTextHandler.ShowCashRegisterText(_isOpened);
                 if (Input.GetKeyDown(KeyCode.F))
+                {
+                    _cashRegisterSound.Play();
                     _isMoving = true;
+                }
             }
         }
     }

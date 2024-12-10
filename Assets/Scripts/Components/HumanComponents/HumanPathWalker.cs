@@ -2,6 +2,7 @@
 using Interfaces;
 using Services.HumanServices;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Components.HumanComponents
 {
@@ -14,10 +15,14 @@ namespace Components.HumanComponents
         [Space(10)] [SerializeField] private bool debugGoBack;
         private Transform[] _points;
         private int _currentPointIndex;
+        public int CurrentPointIndex => _currentPointIndex;
         private bool _isPathComplete;
 
         private bool _isGoingForward = true;
         private bool _isGoingBackward;
+        
+        [SerializeField] private AudioSource breathingSound;
+        private bool _isBreathing;
 
         private bool _hasDoorMoved;
         
@@ -33,10 +38,22 @@ namespace Components.HumanComponents
             _points = new Transform[pathParent.childCount];
             for (int i = 0; i < pathParent.childCount; i++)
                 _points[i] = pathParent.GetChild(i);
+            
         }
 
         private void Update()
         {
+            if (_currentPointIndex >= 2 && !_isBreathing)
+            {
+                breathingSound.Play();
+                _isBreathing = true;
+            }
+            else if (_currentPointIndex < 2 && _isBreathing)
+            {
+                breathingSound.Stop();
+                _isBreathing = false;
+            }
+
             if ((_currentPointIndex is 2 or 3) && !_hasDoorMoved)
             {
                 Debug.Log("opening");

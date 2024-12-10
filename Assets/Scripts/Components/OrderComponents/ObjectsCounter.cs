@@ -38,7 +38,7 @@ namespace Components.OrderComponents
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.CompareTag("Food") && _items.ContainsKey(other.gameObject.name))
+            if (other.gameObject.CompareTag("Food") && _items != null && _items.ContainsKey(other.gameObject.name))
             {
                 _items[other.gameObject.name]++;
                 Debug.Log($"{other.gameObject.name} is on table!");
@@ -60,7 +60,7 @@ namespace Components.OrderComponents
 
         private void OnCollisionExit(Collision other)
         {
-            if (other.gameObject.CompareTag("Food") && _items.ContainsKey(other.gameObject.name))
+            if (other.gameObject.CompareTag("Food") && _items != null && _items.ContainsKey(other.gameObject.name))
             {
                 _items[other.gameObject.name]--;
                 Debug.Log($"{other.gameObject.name} is not on table!");

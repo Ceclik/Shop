@@ -10,9 +10,11 @@ namespace Components.CharacterComponents
 
         private TimerHandler _timer;
         private int _amountOfFailedTimers;
+        private AudioSource _screamer;
 
         private void Start()
         {
+            _screamer = GetComponent<AudioSource>();
             _timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<TimerHandler>();
             _timer.OnTimerFailed += FailedTimersCounter;
         }
@@ -26,6 +28,7 @@ namespace Components.CharacterComponents
                 deathPanel.SetActive(true);
                 Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.Confined;
+                _screamer.Play();
             }
         }
 

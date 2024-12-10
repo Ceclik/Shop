@@ -8,6 +8,7 @@ namespace Components
     public class TimerHandler : MonoBehaviour
     {
         [SerializeField] private float timeOnOneClient;
+        [SerializeField] private AudioSource losingSound;
         private float _currentTimer;
         private TextMeshProUGUI _timerText;
         private ObjectsCounter _order;
@@ -65,6 +66,7 @@ namespace Components
                 _isFailed = true;
                 HideTimer();
                 OnTimerFailed?.Invoke();
+                losingSound.Play();
                 _humanPathWalker.ChangeDirection();
             }
             if (_currentTimer >= 1)
