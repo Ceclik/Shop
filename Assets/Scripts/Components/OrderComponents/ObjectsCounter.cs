@@ -13,6 +13,7 @@ namespace Components.OrderComponents
         private Dictionary<string, int> _items;
         //private bool _isOrderComplete;
         private List<GameObject> _objectsOnTable;
+        private List<GameObject> _objectsInCompleteOrder;
 
         public delegate void CompleteOrder();
 
@@ -25,6 +26,7 @@ namespace Components.OrderComponents
             orderCreator.OnOrderCreated += HandleEvent;
             _moneyInteraction.OnMoneyPutIntoCashRegister += DestroyAddedObjects;
             _objectsOnTable = new List<GameObject>();
+            _objectsInCompleteOrder = new List<GameObject>();
         }
 
         private void HandleEvent()
@@ -46,7 +48,11 @@ namespace Components.OrderComponents
 
             if (_order.Count == _items.Count && !_order.Except(_items).Any())
             {
-                Debug.LogError("Order is complete!!!");
+                Debug.Log("Order is complete!!!");
+                foreach (var objectOnTable in _objectsOnTable)
+                {
+                    _objectsInCompleteOrder.Add(objectOnTable);
+                }
                 //_isOrderComplete = true;
                 OnOrderComplete?.Invoke();
             }
@@ -80,9 +86,10 @@ namespace Components.OrderComponents
 
         private void DestroyAddedObjects()
         {
-            foreach (var item in _objectsOnTable)
+            foreach (var item in _objectsInCompleteOrder)
                 Destroy(item);
-            _objectsOnTable.Clear();
+            //_objectsOnTable.Clear();
+            _objectsInCompleteOrder.Clear();
         }
 
         private void OnDestroy()

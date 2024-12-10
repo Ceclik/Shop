@@ -37,14 +37,14 @@ namespace Components.HumanComponents
 
         private void Update()
         {
-            if ((_currentPointIndex is 1 or 2) && !_hasDoorMoved)
+            if ((_currentPointIndex is 2 or 3) && !_hasDoorMoved)
             {
                 Debug.Log("opening");
                 door.RotateDoor();
                 _hasDoorMoved = true;
             }
             
-            if (!(_currentPointIndex is 1 or 2) && _hasDoorMoved)
+            if (!(_currentPointIndex is 2 or 3) && _hasDoorMoved)
             {
                 Debug.Log("closing");
                 door.RotateDoor();
