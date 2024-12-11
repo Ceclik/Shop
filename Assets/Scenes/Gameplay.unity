@@ -4276,8 +4276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a6092601dc49c5bf11f6724426722f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jackPrefab: {fileID: 6193136465563719121, guid: ec7fbaf4b9db4f24eb2e81178f0a2d7a, type: 3}
-  beerPrefab: {fileID: 1027879818071422266, guid: d79ae4f00dd8a5c419dd7e7a56a58cc8, type: 3}
+  jackPrefab: {fileID: 3611706273102771598, guid: 04fbac2ed861118b4b3de7486568c32b, type: 3}
+  beerPrefab: {fileID: 7196866866315136187, guid: 1ad231b161a24b93d86cc86f8e512a7e, type: 3}
   cheesePrefab: {fileID: 7401952856984319106, guid: f567a4f4994b05f438a0ccdc1baa3463, type: 3}
   applePrefab: {fileID: 2423665294014813216, guid: 0067bc6c2d05ecb4986736c11c9a1247, type: 3}
   jackPointsParent: {fileID: 640967444}
